@@ -23,6 +23,7 @@ The lab reports proxy fills explicitly. A proxy fill is not realized exchange P&
 ## Current Scope
 
 - Normalize order-book snapshots from CSV or the existing `maker_shadow` SQLite schema.
+- Discover open markets through Gamma's cursor-based `/markets/keyset` endpoint.
 - Apply the published Polymarket taker fee model.
 - Generate inventory-aware two-sided maker quotes.
 - Replay public snapshots with a conservative trade-crossing fill proxy.

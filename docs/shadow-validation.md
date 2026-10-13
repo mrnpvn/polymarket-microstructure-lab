@@ -47,10 +47,11 @@ snapshot data is currently more useful for detecting execution risk than for
 proving spread capture.
 
 The legacy recorder initially failed because Gamma now rejects offset pagination
-above 2,000 with `422 offset too large; use /markets/keyset`. Its scan was
-limited to the supported offset range for the smoke test. A proper current
-recorder still needs Gamma keyset pagination before starting the validation
-window.
+above 2,000 with `422 offset too large; use /markets/keyset`. The isolated
+recorder was updated to use keyset pagination and completed a 40-market refresh
+without starting `polybot.service`. The public read-only client in
+`polymarket_lab/gamma.py` implements the same cursor contract. A proper current
+validation window still needs continuous scheduled capture.
 
 ## Next Validation Required
 
