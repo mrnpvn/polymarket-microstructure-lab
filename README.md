@@ -29,6 +29,7 @@ The lab reports proxy fills explicitly. A proxy fill is not realized exchange P&
 - Replay public snapshots with a conservative trade-crossing fill proxy.
 - Measure inventory, drawdown, and adverse selection.
 - Keep live order submission outside the public repository.
+- Provide a hardened, read-only systemd timer for continuous snapshot capture.
 
 ## Quick Start
 
@@ -38,6 +39,9 @@ python -m polymarket_lab.cli --csv snapshots.csv
 python -m polymarket_lab.cli --sqlite maker_shadow.db --market-id CONDITION_ID
 python -m polymarket_lab.cli --sqlite maker_shadow.db --market-id CONDITION_ID --fill-fraction 0.5
 ```
+
+The optional files in `deploy/` run only the existing read-only shadow recorder;
+they do not start `bot.main` or submit orders.
 
 The package uses only the Python standard library.
 

@@ -9,9 +9,9 @@ The database itself is not included in this repository.
 - Table: `book_snapshots`
 - Historical rows through the last continuous run: 44,837
 - Historical observation window: 2026-05-25 15:27:20 UTC through 2026-06-18 02:13:01 UTC
-- Read-only refreshes on 2026-10-13 11:46:27 UTC and 11:50:33 UTC: 80 additional rows across 58 distinct instruments
-- Current totals: 44,917 rows and 1,487 distinct market/token instruments
-- Rows with `last_trade_price`: 44,917
+- Read-only refreshes on 2026-10-13 11:46:27 UTC, 11:50:33 UTC and 11:56:33 UTC: 120 additional rows across 58 distinct instruments
+- Current totals: 44,957 rows and 1,487 distinct market/token instruments
+- Rows with `last_trade_price`: 44,957
 
 There is no continuous coverage between 2026-06-18 and 2026-10-13. The refresh
 is useful as a recorder smoke test, but it does not create a 14-day validation
@@ -21,7 +21,7 @@ window.
 
 Using the default public replay configuration:
 
-- Instruments replayed independently: 1,429
+- Instruments replayed independently: 1,487
 - Instruments with at least one inferred fill: 367
 - Inferred fills: 4,440
 - Sum of proxy realized P&L: approximately `$350.90`
@@ -48,7 +48,7 @@ proving spread capture.
 
 The legacy recorder initially failed because Gamma now rejects offset pagination
 above 2,000 with `422 offset too large; use /markets/keyset`. The isolated
-recorder was updated to use keyset pagination and completed two 40-market refreshes
+recorder was updated to use keyset pagination and completed three 40-market refreshes
 without starting `polybot.service`. The public read-only client in
 `polymarket_lab/gamma.py` implements the same cursor contract. A proper current
 validation window still needs continuous scheduled capture.
@@ -61,3 +61,6 @@ validation window still needs continuous scheduled capture.
 3. Calibrate the proxy model against those confirmations.
 4. Replay two future, untouched time windows.
 5. Apply the research gate in `docs/research-plan.md`.
+
+The isolated recorder timer in `deploy/` is suitable for step 1. It is separate
+from the inactive `polybot.service` and must not be replaced with `bot.main`.
