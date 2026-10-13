@@ -15,9 +15,8 @@ The database itself is not included in this repository.
 
 There is no continuous coverage between 2026-06-18 and 2026-10-13. The refresh
 is useful as a recorder smoke test, but it does not create a 14-day validation
-window. The isolated timer now continues recording after this report, so future
-runs must update the observation window rather than treating these totals as a
-live counter.
+window. The isolated timer was enabled briefly to verify the corrected recorder
+and was disabled again when the trading experiment was closed.
 
 ## Replay Result
 

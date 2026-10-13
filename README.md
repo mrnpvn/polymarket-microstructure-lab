@@ -1,5 +1,9 @@
 # Polymarket Microstructure Lab
 
+> **Status: CLOSED as a trading experiment (2026-10-13).** No live strategy or
+> durable edge was demonstrated. This repository is preserved as a research and
+> microstructure artifact; do not connect a wallet based on its replay output.
+
 Read-only research tools for testing whether a Polymarket maker strategy survives
 fees, inventory risk, adverse selection, and realistic public-data fills.
 
