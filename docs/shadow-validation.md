@@ -10,12 +10,14 @@ The database itself is not included in this repository.
 - Historical rows through the last continuous run: 44,837
 - Historical observation window: 2026-05-25 15:27:20 UTC through 2026-06-18 02:13:01 UTC
 - Read-only refreshes on 2026-10-13 11:46:27 UTC, 11:50:33 UTC and 11:56:33 UTC: 120 additional rows across 58 distinct instruments
-- Current totals: 44,957 rows and 1,487 distinct market/token instruments
-- Rows with `last_trade_price`: 44,957
+- Snapshot totals at 2026-10-13 11:56:33 UTC: 44,957 rows and 1,487 distinct market/token instruments
+- Rows with `last_trade_price` at that snapshot: 44,957
 
 There is no continuous coverage between 2026-06-18 and 2026-10-13. The refresh
 is useful as a recorder smoke test, but it does not create a 14-day validation
-window.
+window. The isolated timer now continues recording after this report, so future
+runs must update the observation window rather than treating these totals as a
+live counter.
 
 ## Replay Result
 
