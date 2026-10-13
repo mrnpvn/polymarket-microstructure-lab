@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polymarket-microstructure-lab"
+version = "0.1.0"
+description = "Read-only Polymarket order-book recorder, maker replay and risk research tools"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+polymarket-lab = "polymarket_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
