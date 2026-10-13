@@ -9,9 +9,9 @@ The database itself is not included in this repository.
 - Table: `book_snapshots`
 - Historical rows through the last continuous run: 44,837
 - Historical observation window: 2026-05-25 15:27:20 UTC through 2026-06-18 02:13:01 UTC
-- Read-only refresh on 2026-10-13 11:46:27 UTC: 40 additional rows across 40 instruments
-- Current totals: 44,877 rows and 1,469 distinct market/token instruments
-- Rows with `last_trade_price`: 44,877
+- Read-only refreshes on 2026-10-13 11:46:27 UTC and 11:50:33 UTC: 80 additional rows across 58 distinct instruments
+- Current totals: 44,917 rows and 1,487 distinct market/token instruments
+- Rows with `last_trade_price`: 44,917
 
 There is no continuous coverage between 2026-06-18 and 2026-10-13. The refresh
 is useful as a recorder smoke test, but it does not create a 14-day validation
@@ -48,7 +48,7 @@ proving spread capture.
 
 The legacy recorder initially failed because Gamma now rejects offset pagination
 above 2,000 with `422 offset too large; use /markets/keyset`. The isolated
-recorder was updated to use keyset pagination and completed a 40-market refresh
+recorder was updated to use keyset pagination and completed two 40-market refreshes
 without starting `polybot.service`. The public read-only client in
 `polymarket_lab/gamma.py` implements the same cursor contract. A proper current
 validation window still needs continuous scheduled capture.
